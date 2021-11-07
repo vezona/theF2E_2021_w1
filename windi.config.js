@@ -10,12 +10,17 @@ export default {
           base: '45px'
         },
         backgroundColor: {
-          primary: '#99cc33',
+          primary: '#7F977B',
+          secondary: '#65895F',
+          yellow:'#E0DA48',
+          brown_light:'#BEA363'
         },
         colors: {
-          primary: '#99cc33',
-          activeLink: '#ff8833',
-          deactiveLink: '#999999'
+          primary: '#7F977B',
+          activeLink: '#65895F',
+          deactiveLink: '#999999',
+          yellow:'#E0DA48',
+          brown_light:'#BEA363'
         }
       }
     }
