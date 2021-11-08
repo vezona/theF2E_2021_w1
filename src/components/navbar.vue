@@ -1,14 +1,21 @@
 <template>
   <div class="flex justify-between" p="y-4 x-45px" border='b-1 solid primary'>
-    <router-link to='/'>
-      <img alt="Vue logo" src="../assets/img/Icon/Logo-desktop.svg" />
+    <router-link to='/' class='md:hidden'>
+      <img alt="Vue mob logo" src="../assets/img/Icon/Logo-mobile.svg" />
     </router-link>
-    <ul class="flex items-center">
-      <li v-for=" i in navItems" :key="i.item" class="px-3 hover:text-primary after::(content:'')"
+    <router-link to='/' class='<md:hidden'>
+      <img alt="Vue web logo" src="../assets/img/Icon/Logo-desktop.svg" />
+    </router-link>
+    <!-- web navList -->
+    <ul class="flex items-center <md:hidden">
+      <li v-for=" i in navItems" :key="i.item" 
+          class="nav-item px-3 hover:text-primary "
           border='not-last-of-type:r-2 gray-300'>
           <router-link :to='i.url'>{{i.item}}</router-link>
       </li>
     </ul>
+    <!-- mob navList -->
+    <button type='button' class='md:hidden'>Click</button>
     
   </div>
   
@@ -42,24 +49,23 @@ export default {
 
 <style lang="scss">
 
-.first {
+.nav-item {
     position: relative;
 }
 
-.first::after {
+.nav-item::after {
     content: '';
-    width: 80%;
-    height: 2px;
+    width: 0;
+    height: 3px;
     position: absolute;
-    bottom: -4px;
-    left: 10px;
+    bottom: -10px;
+    left: 15px;
     transition: .5s;
-    background: red;
-    transform: scale(0);
+    background: $primary;
 }
 
-.first:hover:after {
-    transform: scale(1);
+.nav-item:hover:after {
+  width: 70%;
 }
 
 
