@@ -8,13 +8,13 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       additionalData: `@import "./src/sass/common.module.scss`,
-  //     },
-  //   },
-  // },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import './src/sass/common.scss';`,
+      },
+    },
+  },
   plugins: [
     vue(),
     WindiCSS(),
@@ -35,6 +35,11 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html')
       },
+    }
+  },
+  server: {
+    fs: {
+      strict:false
     }
   }
 })
