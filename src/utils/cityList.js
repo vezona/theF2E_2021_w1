@@ -1,4 +1,5 @@
-export const cityCodeList = [{
+export const cityCodeList = [
+    {
     "cityNumber" : "0",
     "cityCode"   : "0000",
     "cityName"   : "台北市",
