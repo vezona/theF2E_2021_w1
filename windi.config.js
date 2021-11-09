@@ -1,4 +1,3 @@
-
 export default {
     attributify: true,
     theme: {
@@ -12,12 +11,14 @@ export default {
         backgroundColor: {
           primary: '#7F977B',
           secondary: '#65895F',
+          dark_green: '#284E4E',
           yellow:'#E0DA48',
           brown_light:'#BEA363'
         },
         colors: {
           primary: '#7F977B',
-          activeLink: '#65895F',
+          secondary: '#65895F',
+          dark_green: '#284E4E',
           deactiveLink: '#999999',
           yellow:'#E0DA48',
           brown_light:'#BEA363'

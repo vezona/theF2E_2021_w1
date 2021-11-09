@@ -1,13 +1,24 @@
 <template>
-  <div>About</div>
+  <div>Home</div>
 </template>
 
 <script>
-  export default {
-      name: 'About'
-    }
+import { ref } from 'vue'
+export default {
+  props: {
+    // user: {
+    //   type: String,
+    //   required: true
+    // }
+  },
+  setup(props) {
+
+    return {
+    } 
+  }
+}
 </script>
 
- <style>
+ <style lang='scss' scoped>
  
  </style>

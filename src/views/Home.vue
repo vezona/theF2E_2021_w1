@@ -1,13 +1,26 @@
 <template>
-  <div>Home</div>
+<div class=""></div>
+  <menu-search></menu-search>
 </template>
 
 <script>
-  export default {
-      name: 'Home'
-    }
+import { ref } from 'vue';
+import menuSearch from '../components/menuSearch.vue'
+export default {
+  props: {
+    // user: {
+    //   type: String,
+    //   required: true
+    // }
+  },
+  setup(props) {
+
+    return {
+    } 
+  }
+}
 </script>
 
- <style>
+ <style lang='scss' scoped>
  
  </style>
