@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between" p="y-4 x-45px" border='md:b-1 solid primary'>
-    <router-link to='/' class='md:hidden self-center ml-auto'>
-      <img alt="mob logo" src="../assets/img/Icon/Logo-mobile.svg" />
+    <router-link to='/' class='md:hidden self-center ml-auto z-10'>
+      <img alt="mob logo"  src="../assets/img/Icon/Logo-mobile.svg" />
     </router-link>
     <router-link to='/' class='<md:hidden'>
       <img alt="web logo" src="../assets/img/Icon/Logo-desktop.svg" />
@@ -77,7 +77,7 @@ export default {
   background-color: $primary;
   border-radius: 12px;
   padding: 10px;
-  z-index: 1;
+  z-index: 2;
 }
 
 @mixin transition{
@@ -136,7 +136,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
+  z-index: 1;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -150,7 +150,7 @@ export default {
     width: 0%;
     height: 100%;
     background:$yellow;
-    z-index: -1;
+    z-index: 1;
   }
 
   &:after{
@@ -161,7 +161,7 @@ export default {
     width: 0%;
     height: 100%;
     background: $secondary;
-    z-index: -1;
+    z-index: 1;
   }
 
 }
@@ -182,6 +182,7 @@ export default {
     transform: translateY(-30px);
     animation: fade-in 0.3s ease-in-out forwards;
     animation-delay: 0.6s;
+    z-index: 2;
   }
 
   &:before{

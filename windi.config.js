@@ -21,7 +21,8 @@ export default {
           dark_green: '#284E4E',
           deactiveLink: '#999999',
           yellow:'#E0DA48',
-          brown_light:'#BEA363'
+          brown_light: '#BEA363',
+          orange:'#FF725E'
         }
       }
     }

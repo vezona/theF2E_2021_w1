@@ -1,11 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 
 const routes = [
+    // 404
+    // {
+    //   path: '/:pathMatch(.*)*',
+    //   component: () => import('../components/404.vue')
+    // },
+    // 首頁
     { path: '/', name: 'Home', component: Home },
-    { path:'/about', name:'About', component: About}
+    // 篩選器主頁
+    {
+        path: '/search',
+        name: 'search',
+        component: () => import('../views/search.vue'),
+         // 槽狀結構
+        children: [
+            {
+            path: 'Spots',
+            name: 'Spots',
+            component: () => import('../views/Spots.vue')
+            }
+        ]
+    }
 ]
 
 const router = createRouter({
