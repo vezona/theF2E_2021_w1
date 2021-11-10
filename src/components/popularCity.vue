@@ -1,7 +1,11 @@
 <template>
   <div class='flex' p='x-45px'>
-      <div class='cityCard' v-for='city in popularCity' :key='city.value'>
-          <div>{{city.name}}</div>
+      <div class='cityCard border-2 p-1 hover:cursor-pointer' 
+           v-for='city in popularCity' :key='city.value'>
+          <div class='border-2'>
+              <!-- <img src="../assets/img/key_img.png" alt="city image"> -->
+              <p>{{city.name}}</p>
+          </div>
       </div>
   </div>
 </template>
@@ -47,5 +51,13 @@ export default {
 </script>
 
  <style lang='scss' scoped>
+ .cityCard{
+     flex-grow: 1;
+     transition:.5s
+ }
+ .cityCard:hover{
+     flex-grow: 3;
+ }
+
  
  </style>
