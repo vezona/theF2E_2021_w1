@@ -1,6 +1,6 @@
 <template>
   <div class='flex justify-between' 
-       p='x-45px y-30px'>
+       p='x-45px t-35px b-20px'>
     <h1 class='text-2xl tracking-wide'>{{title}}</h1>
     <router-link :to='url' class='text-orange flex items-center text-xs'>
       查看更多{{type}}

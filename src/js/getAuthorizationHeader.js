@@ -1,17 +1,6 @@
 import jsSHA from "jssha";
 
-export const fetchData = async (url) => {
-    const res = await fetch(
-        `https://ptx.transportdata.tw/MOTC/v2/${url}`,
-        {
-        headers: getAuthorizationHeader()
-        }
-    )
-    const data = await res.json();
-    return data;
-}
-
-function getAuthorizationHeader() {
+export function getAuthorizationHeader() {
     //  填入自己 ID、KEY 開始
         let AppID = '05308bdea7aa47d58b246bd2412c3bdd';
         let AppKey = 'keE6SBYMXwKKTj8HWMexbSiRAZg';

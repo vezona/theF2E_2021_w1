@@ -12,17 +12,23 @@ const routes = [
     { path: '/', name: 'Home', component: Home },
     // 篩選器主頁
     {
-        path: '/search',
-        name: 'search',
-        component: () => import('../views/search.vue'),
-         // 槽狀結構
-        children: [
-            {
-            path: 'Spots',
-            name: 'Spots',
-            component: () => import('../views/Spots.vue')
-            }
-        ]
+      path: '/search',
+      name: 'search',
+      component: () => import('../views/search.vue'),
+      // 槽狀結構
+      children: [
+        {
+          path: 'spots',
+          name: 'Spots',
+          component: () => import('../views/Spots.vue')
+        }
+      ]
+    },
+    // 城市頁面
+    {
+      path: '/cities',
+      name: 'cities',
+      component: () => import('../views/Cities.vue')
     }
 ]
 
