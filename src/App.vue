@@ -3,6 +3,7 @@
   <!-- <icon-mdi-light-arrow-right-circle/>
   <router-link to="/about">關於我們</router-link> -->
   <router-view></router-view>
+  <foot></foot>
 </template>
 
 <script>

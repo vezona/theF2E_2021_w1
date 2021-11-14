@@ -5,8 +5,11 @@
   <menu-column title='近期活動' type='活動' url='/search/'></menu-column>
   <recent-activity></recent-activity>
   <menu-column title='必訪景點' type='景點' url='/search/'></menu-column>
+  <popular-spots></popular-spots>
   <menu-column title='探詢美食' type='美食' url='/search/'></menu-column>
+  <popular-food></popular-food>
   <menu-column title='實在好宿' type='旅宿' url='/search/'></menu-column>
+  <popular-living></popular-living>
 </template>
 
 <script>

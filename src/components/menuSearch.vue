@@ -1,9 +1,9 @@
 <template>
   <div class='keyWrap py-50px md:px-140px <md:px-50px m-auto'>
     <div class="keyWords leading-10 text-light-100 mb-5">
-      <p class='text-4xl leading-15'>探索 <span class='lineMove font-medium'>台灣之美</span></p>
-      <p class='text-4xl'>讓我們更親近這片土地</p>
-      <p clas='text-sm'>
+      <p class='text-4xl leading-15 <sm:text-3xl'>探索 <span class='lineMove font-medium'>台灣之美</span></p>
+      <p class='text-4xl <sm:(text-3xl mt-3)'>讓我們更親近這片土地</p>
+      <p class='text-sm <sm:(leading-none mt-4)'>
         <img class='inline-block' src="../assets/img/Icon/spot24_Y.png" alt="location icon">
         <span>台灣旅遊景點導覽 Taiwan Travel Guide</span>
       </p>
@@ -21,11 +21,11 @@
         </div>
 
         <!-- 選擇活動 -->
-        <select name="" id="" class='border-2 rounded-sm flex-auto mr-3 focus-visible:outline-none <lg:my-2'
-                p='y-1 x-2' v-model='currentItem' @click="isShow = false">
+        <select name="" id="" class='border-2 rounded-sm flex-auto mr-3 h-41px focus-visible:outline-none <lg:my-2'
+                p='x-2' v-model='currentItem' @click="isShow = false">
           <option v-for='item in navItems' :key='item.item' :value="item.value">{{item.item}}</option>
         </select>
-        <input type="text" class='rounded-sm flex-auto mr-3 box-border h-36px
+        <input type="text" class='rounded-sm flex-auto mr-3 box-border h-40px
                 <lg:(w-full mb-2)' 
                 focus-visible='outline-none border-2 border-dark_green'
                 p='y-1 x-2'
@@ -37,7 +37,8 @@
       </div>
 
       <!-- 縣市選單 -->
-      <div class="areaList flex flex-wrap rounded-sm absolute top-60px <lg:top-70px"
+      <div class="areaList flex flex-wrap rounded-sm absolute top-80px z-1 w-3/5
+       <lg:(top-90px w-11/12)"
           bg='white' border='1 primary'
           m='x-5' p='t-2'
           v-show='isShow'>

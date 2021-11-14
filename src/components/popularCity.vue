@@ -1,6 +1,8 @@
 <template>
-  <div class='flex' p='x-45px'>
-      <div class='cityCard p-1 hover:cursor-pointer' 
+ <div class='<sm:overflow-hidden'>
+    <div class='flex' p='x-45px' @touchmove='swipe'
+    :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
+      <div class='cityCard p-1 hover:cursor-pointer <sm:(flex-grow-0 flex-shrink-0 w-1/2)' 
            v-for='city in popularCity' :key='city.value'>
           <router-link :to=city.url class='block bg-cover h-200px relative rounded-sm'
             :style='{"background-image":`url(${city.image})`}'
@@ -11,7 +13,7 @@
                            "h-40px":city.name !== currentCity,
                            "bg-gray-100":city.name === currentCity}'>
                 <h1>{{city.name}}</h1>
-                <p class='text-sm font-thin h-60px line-clamp-3 overflow-hidden' 
+                <p class='text-xs font-thin h-60px line-clamp-3 overflow-hidden' 
                    :class='{"block":city.name === currentCity,"hidden":city.name !== currentCity}'>
                    {{city.describe}}
                 </p>
@@ -19,6 +21,7 @@
           </router-link>
       </div>
   </div>
+ </div>
 </template>
 
 <script>
@@ -76,9 +79,32 @@ export default {
 
        const currentCity = ref()
 
+      // 滑動
+       const currentOffset = ref(0);
+       let moveX = 0,
+        touchPositionX=[]
+       const swipe = (e) =>{
+          // 抓位置
+          moveX = e.touches[0].pageX
+          // 紀錄上一次與這次滑動位置
+          touchPositionX.splice(0, touchPositionX.length-1)
+          touchPositionX.push(moveX)
+          if(touchPositionX[0] > moveX && currentOffset.value > -450){ // 往右滑
+          console.log('往右')
+            currentOffset.value -= 5
+          } else {  //往左滑
+            currentOffset.value += 5
+            if( currentOffset.value >= 0){
+              currentOffset.value = 0
+            }
+          }
+       }
+
     return {
         popularCity,
-        currentCity
+        currentCity,
+        currentOffset,
+        swipe,
     } 
   }
 }

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 import { getAuthorizationHeader } from '../js/getAuthorizationHeader';
 export default {
   props: {
@@ -14,8 +14,8 @@ export default {
   },
   setup(props) {
 
-    // const data = ref([]);
-    // const fetchData = async (url) => {
+    // const data = reactive();
+    // const fetchData = async (url, dataName) => {
     //   const res = await fetch(
     //       `https://ptx.transportdata.tw/MOTC/v2/${url}`,
     //       {
@@ -23,11 +23,9 @@ export default {
     //       }
     //   )
     //   const json = await res.json();
-    //   data.value = json;
+    //   data = json;
     //   console.log(data);
     // }
-
-    // fetchData('Tourism/Restaurant?$top=6&$filter=contains(Description,'熱門') and Picture/PictureUrl1 ne null&$format=JSON')
 
     return {
     } 

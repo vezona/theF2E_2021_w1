@@ -1,5 +1,8 @@
 <template>
-  <div>{{cityName}}</div>
+  <div class='mt-3'>
+    <h1 class=''
+        text='3xl dark_green center'>{{cityName}}</h1>
+  </div>
 </template>
 
 <script>

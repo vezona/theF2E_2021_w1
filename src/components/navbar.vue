@@ -198,7 +198,7 @@ export default {
 }
 
 .mobSideContainer.close{
-  display: flex;
+  display: none;
   width: 100%;
   animation: width-close 0.3s ease-in-out forwards;
   animation-delay: 0.2s;
