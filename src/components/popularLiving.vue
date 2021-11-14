@@ -1,6 +1,6 @@
 <template>
  <div class='overflow-hidden'>
-  <div class='flex' p='x-45px' @touchmove='swipe'
+  <div class='flex' p='x-45px' @touchmove='swipe' @mousemove="webSwipe"
     :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
     <div class="cardWrap px-2 flex-grow-0 flex-shrink-0 w-1/3 <sm:w-full"
       v-for='food in data' :key='food.ID'>
@@ -67,10 +67,22 @@ export default {
       }
     }
 
+    const webSwipe = (e)=>{
+      console.log(e.movementX, );
+      if(e.movementX < 0){
+        currentOffset.value += 5
+      } else if(e.movementX === 0 && e.movementY === 0){
+        currentOffset.value -= 5
+      }
+      // e.movementX < 0? currentOffset.value += 5: currentOffset.value -= 5
+      // currentOffset.value += 5
+    }
+
     return {
         data,
         currentOffset,
         swipe,
+        webSwipe
     } 
   }
 }
