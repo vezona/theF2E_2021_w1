@@ -41,5 +41,6 @@ export default defineConfig({
     fs: {
       strict:false
     }
-  }
+  },
+  base: process.env.NODE_ENV === 'production' ? '/theF2E_2021_w1/' : './',
 })
