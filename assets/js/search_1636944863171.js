@@ -1,0 +1,1 @@
+import{_ as s}from"./main.js";import{b as r,o as t,c as a,d as c,a as n}from"./vendor_1636944863171.js";const _={props:{},setup(e){return{}}},p={class:"flex"},d=n("aside",{class:"w-1/3"},"choose",-1);function i(e,m,f,l,u,v){const o=r("router-view");return t(),a("div",p,[d,c(o)])}var $=s(_,[["render",i]]);export{$ as default};
