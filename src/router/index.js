@@ -29,7 +29,12 @@ const routes = [
       path: '/cities',
       name: 'cities',
       component: () => import('../views/Cities.vue')
-    }
+    },
+    // 腳踏車頁面
+    {
+      path: '/bike',
+      name: 'Bike',
+      component: () => import('../views/Bike.vue')}
 ]
 
 const router = createRouter({
