@@ -9,7 +9,7 @@ const routes = [
     //   component: () => import('../components/404.vue')
     // },
     // 首頁
-    { path: '/', name: 'Home', component: Home },
+    { path: '/theF2E_2021_w1', name: 'Home', component: Home },
     // 篩選器主頁
     {
       path: '/search',

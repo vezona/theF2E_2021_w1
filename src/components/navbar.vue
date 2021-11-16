@@ -1,9 +1,9 @@
 <template>
   <div class="flex justify-between" p="y-4 x-45px" border='md:b-1 solid primary'>
-    <router-link to='/' class='md:hidden self-center ml-auto z-10'>
+    <router-link to='/theF2E_2021_w1' class='md:hidden self-center ml-auto z-10'>
       <img alt="mob logo"  src="../assets/img/Icon/Logo-mobile.svg" />
     </router-link>
-    <router-link to='/' class='<md:hidden'>
+    <router-link to='/theF2E_2021_w1' class='<md:hidden'>
       <img alt="web logo" src="../assets/img/Icon/Logo-desktop.svg" />
     </router-link>
     <!-- web navList -->
