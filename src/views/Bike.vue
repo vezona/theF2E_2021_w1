@@ -1,13 +1,14 @@
 <template>
   <div class='max-w-1280px m-auto'>腳踏車
   </div>
-  <div id="myMap h-full z-10"></div>
+  <div id="myMap" class="h-500px z-10 m-auto"></div>
 </template>
 
 <script>
 import { ref, reactive, onMounted } from 'vue';
 import { getAuthorizationHeader } from '../js/getAuthorizationHeader';
-import leaflet from 'leaflet';
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 export default {
   props: {
     // user: {
@@ -16,17 +17,17 @@ export default {
     // }
   },
   setup() {
+console.log(L);
 
       let myMap;
       onMounted(()=>{
-        console.log(myMap);
-        myMap = leaflet.map("myMap", {
+        myMap = L.map("myMap", {
             center: [22.595153, 120.306923],
             zoom: 17
             });
-    //     leaflet
-    //       .tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    //   attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(mymap);
+        L
+          .tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(myMap);
 
       })
 
@@ -53,5 +54,4 @@ export default {
 </script>
 
  <style lang='scss' scoped>
- 
  </style>
