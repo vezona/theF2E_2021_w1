@@ -1,26 +1,10 @@
 <template>
-  <div class='max-w-1280px m-auto min-h-screen-md'>
-    <ul class='flex justify-around mt-20'>
-      <router-link to="/cyclingRoute" 
-        class='p-2 w-1/3 bg-dark_green text-center text-light-100'
-        hover="bg-primary text-dark-600">
-        自行車路線
-      </router-link>
-      
-      <router-link to="/youbikeSpots" 
-        class='p-2 w-1/3 bg-amber-500 text-center text-light-100'
-        hover="bg-yellow text-dark-600">
-        單車租借
-      </router-link>
-    </ul>
-  </div>
+  <div>Activities</div>
 </template>
 
 <script>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive } from 'vue';
 import { getAuthorizationHeader } from '../js/getAuthorizationHeader';
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 export default {
   props: {
     // user: {
@@ -28,8 +12,7 @@ export default {
     //   required: true
     // }
   },
-  setup() {
-console.log(L);
+  setup(props) {
 
     // const data = ref([]);
     // const fetchData = async (url) => {
@@ -53,4 +36,5 @@ console.log(L);
 </script>
 
  <style lang='scss' scoped>
+ 
  </style>

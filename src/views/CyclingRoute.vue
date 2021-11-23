@@ -1,19 +1,5 @@
 <template>
-  <div class='max-w-1280px m-auto min-h-screen-md'>
-    <ul class='flex justify-around mt-20'>
-      <router-link to="/cyclingRoute" 
-        class='p-2 w-1/3 bg-dark_green text-center text-light-100'
-        hover="bg-primary text-dark-600">
-        自行車路線
-      </router-link>
-      
-      <router-link to="/youbikeSpots" 
-        class='p-2 w-1/3 bg-amber-500 text-center text-light-100'
-        hover="bg-yellow text-dark-600">
-        單車租借
-      </router-link>
-    </ul>
-  </div>
+  <div id="myMap" class="h-500px z-10 m-auto"></div>
 </template>
 
 <script>
@@ -30,6 +16,19 @@ export default {
   },
   setup() {
 console.log(L);
+
+      let myMap;
+      onMounted(()=>{
+        myMap = L.map("myMap", {
+            center: [22.595153, 120.306923],
+            zoom: 17
+            });
+        L
+          .tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(myMap);
+
+      })
+
 
     // const data = ref([]);
     // const fetchData = async (url) => {

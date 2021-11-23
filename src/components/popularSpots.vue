@@ -1,5 +1,5 @@
 <template>
-  <div class='flex flex-wrap' p='x-45px'>
+  <div class='flex flex-wrap max-w-1280px m-auto' p='x-45px'>
       <div class='w-1/2 p-2 <md:w-full' v-for='i in data' :key='i.ID'>
           <router-link to='/' class="block flex rounded-md overflow-hidden cursor-pointer sm:h-30 <sm:block hover:(border-2 border-dark_green)">
               <img class='w-1/3 <sm:w-full' :src=i.Picture.PictureUrl1 alt="">

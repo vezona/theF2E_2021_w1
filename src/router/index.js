@@ -19,9 +19,29 @@ const routes = [
       children: [
         {
           path: 'spots',
-          name: 'Spots',
+          name: 'spots',
           component: () => import('../views/Spots.vue')
-        }
+        },
+        {
+          path: 'activities',
+          name: 'activities',
+          component: () => import('../views/Activities.vue')
+        },
+        {
+          path: 'food',
+          name: 'food',
+          component: () => import('../views/Food.vue')
+        },
+        {
+          path: 'living',
+          name: 'living',
+          component: () => import('../views/Living.vue')
+        },
+        {
+          path: 'transportation',
+          name: 'transportation',
+          component: () => import('../views/Transportation.vue')
+        },
       ]
     },
     // 城市頁面
@@ -34,7 +54,21 @@ const routes = [
     {
       path: '/bike',
       name: 'Bike',
-      component: () => import('../views/Bike.vue')}
+      component: () => import('../views/Bike.vue')
+    },
+    // 腳踏車-找Youbike
+    {
+      path: '/youbikeSpots',
+      name: 'Youbike',
+      component: () => import('../views/YoubikeSpots.vue')
+    },
+    // 腳踏車-找路線
+    {
+      path: '/cyclingRoute',
+      name: 'CyclingRoute',
+      component: () => import('../views/CyclingRoute.vue')
+    }
+    
 ]
 
 const router = createRouter({

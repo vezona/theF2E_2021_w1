@@ -4,9 +4,9 @@
       <div class='absolute w-full px-100px <sm:px-10px' 
       v-for='i in activityList' :key='i.ID'>
           <router-link to='/' class="rounded-md py-5
-           md:h-350px <md:h-300px"
-           :class='{flex:i.Name === currentActivity, hidden:i.Name !== currentActivity}'>
-              <div class="info p-2 bg-warm-gray-100 w-full relative <sm:w-1/2">
+            md:h-350px <md:h-300px justify-center"
+            :class='{flex:i.Name === currentActivity, hidden:i.Name !== currentActivity}'>
+              <div class="info p-2 bg-warm-gray-100 w-1/3 relative <md:w-1/2">
                 <p class='text-md text-dark-400 font-bold mb-2'>{{i.Name}}</p>
                 <div class="date flex items-center">
                   <icon-mdi:calendar-month class='text-xs'></icon-mdi:calendar-month>
@@ -18,15 +18,17 @@
                     <icon-carbon:location class='mr-2'></icon-carbon:location>
                     {{i.Location}}
                 </div>
+
+                <img class='w-full my-2 rounded-md md:hidden' :src=i.Picture.PictureUrl1 alt="">
                 
-                <div class='absolute bottom-2 font-thin w-1/2 mr-4'>
+                <div class='absolute font-thin w-1/2 mr-4 bottom-2 <md:(bottom-0 w-full) '>
                   <p class='bg-dark_green w-full rounded-sm p-1'
-                     text='xs white center'>了解更多
+                     text='md light-100 center'>了解更多
                   </p>
                 </div>
 
               </div>
-               <img class='w-1/2 rounded-md' :src=i.Picture.PictureUrl1 alt="">
+               <img class='w-1/3 rounded-md <md:hidden' :src=i.Picture.PictureUrl1 alt="">
           </router-link>
       </div>
       <div class="absolute relative top-150px w-full px-45px text-40px text-gray-300">

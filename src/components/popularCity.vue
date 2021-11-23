@@ -1,5 +1,5 @@
 <template>
- <div class='<sm:overflow-hidden'>
+ <div class='<sm:overflow-hidden max-w-1280px m-auto'>
     <div class='flex' p='x-45px' @touchmove='swipe'
     :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}">
       <div class='cityCard p-1 hover:cursor-pointer <sm:(flex-grow-0 flex-shrink-0 w-1/2)' 

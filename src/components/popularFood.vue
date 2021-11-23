@@ -1,5 +1,5 @@
 <template>
-  <div class='flex <md:block' p='x-45px'>
+  <div class='flex max-w-1280px m-auto <md:block ' p='x-45px'>
     <div class="listWrap w-full px-2 <md:mb-5"
       v-for='food in data' :key='food.ID'>
       <router-link to='/' class="block card text-sm hover:(filter brightness-125)">
