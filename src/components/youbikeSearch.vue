@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, inject } from 'vue';
+import { ref, reactive, computed, inject, watch } from 'vue';
 import { getAuthorizationHeader } from '../js/getAuthorizationHeader';
 export default {
   props: {
@@ -69,6 +69,12 @@ export default {
     const districtList = computed(() => {
         return currCounty.value["districts"]
     });
+
+    // 縣市改變時抓第一個區域
+    watch(districtList, () => {
+      currDistrict.value = districtList.value[0]
+    })
+
 
 
     return {

@@ -29,7 +29,6 @@ export default {
     const LatLng = reactive([])
     let lat, lng;
     watch(currDistrict, ()=>{
-      // console.log(currDistrict.value);
       lat = currDistrict.value["latitude"];
       lng = currDistrict.value["longitude"]
       Object.assign(LatLng, [lat, lng])
@@ -40,6 +39,7 @@ export default {
 
     // 地圖
     let myMap;
+    let redIcon;
     onMounted(()=>{
       myMap = L.map("myMap", {
           center: [25.0263064, 121.5262934], // 高雄 22.595153, 120.306923
@@ -51,7 +51,27 @@ export default {
                     { attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>contributors'}
                   ).addTo(myMap);
 
+      // marker
+      redIcon = new L.Icon({
+          iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+        });
     });
+
+    let marker;
+    const setMarkers = (data) => {
+      data.forEach(d => {
+      marker = new L.marker([d.StationPosition.PositionLat, d.StationPosition.PositionLon], {icon: redIcon})
+      
+      myMap.addLayer(marker)
+    
+      marker.bindPopup('<h1>'+ d.StationName.Zh_tw +'</h1>')
+      })
+    }
 
 
     const data = ref([]);
@@ -64,9 +84,10 @@ export default {
       )
       const json = await res.json();
       data.value = json;
-      console.log(data);
+      console.log('change city', data.value);
+      setMarkers(data.value)
     }
-        // url: `Bike/Station/NearBy?$spatialFilter=nearby(${latitude},${longitude},500)`,
+    // url: `Bike/Station/NearBy?$spatialFilter=nearby(${latitude},${longitude},500)`,
     
 
     return {
