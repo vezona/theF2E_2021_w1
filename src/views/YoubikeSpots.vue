@@ -33,13 +33,13 @@ export default {
       lng = currDistrict.value["longitude"]
       Object.assign(LatLng, [lat, lng])
       myMap.flyTo(LatLng, 14)
-      // 打bike API
+      // call bike API
       fetchData(`Bike/Station/NearBy?$spatialFilter=nearby(${lat},${lng},500)`);
     })
 
     // 地圖
     let myMap;
-    let redIcon;
+    let redIcon, infoIcon;
     onMounted(()=>{
       myMap = L.map("myMap", {
           center: [25.0263064, 121.5262934], // 高雄 22.595153, 120.306923
@@ -60,19 +60,39 @@ export default {
           popupAnchor: [1, -34],
           shadowSize: [41, 41]
         });
+
+      infoIcon = new L.Icon({
+          iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+          iconSize: [35, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+        });
     });
 
     let marker;
     const setMarkers = (data) => {
-      data.forEach(d => {
-      marker = new L.marker([d.StationPosition.PositionLat, d.StationPosition.PositionLon], {icon: redIcon})
-      
-      myMap.addLayer(marker)
-    
-      marker.bindPopup('<h1>'+ d.StationName.Zh_tw +'</h1>')
-      })
+      clearMarkers()
+      if(data.length > 0 ){
+        data.forEach(d => {
+          marker = new L.marker([d.StationPosition.PositionLat, d.StationPosition.PositionLon], {icon: redIcon})
+          myMap.addLayer(marker)
+          marker.bindPopup('<h1>'+ d.StationName.Zh_tw +'</h1>')
+        })
+
+      } else {
+          marker = new L.marker([lat, lng], {icon: infoIcon})
+          myMap.addLayer(marker)
+          marker.bindPopup('<h1>附近500公尺沒有站點</h1>').openPopup()
+      }
     }
 
+    const clearMarkers = ()=>{
+      if(marker){
+        myMap.removeLayer(marker)
+      }
+    }
 
     const data = ref([]);
     const fetchData = async (url) => {
@@ -84,10 +104,8 @@ export default {
       )
       const json = await res.json();
       data.value = json;
-      console.log('change city', data.value);
       setMarkers(data.value)
     }
-    // url: `Bike/Station/NearBy?$spatialFilter=nearby(${latitude},${longitude},500)`,
     
 
     return {
